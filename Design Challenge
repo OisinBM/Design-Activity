@@ -1,0 +1,391 @@
+import random
+
+listy = [
+    'yes',
+    'no',
+    ]
+
+import random
+
+list1 = [
+    'yes',
+    'yes',
+    'yes',
+    'no',
+    ]
+
+#The user has chosen their role. Now introducing them to the game
+
+print('Name your character')
+
+#Ask the user ot name their character
+
+name = input()
+name = name.lower()
+
+#Describing thhe gameplay that the user has chosen
+
+print(f'You are King {name} II.')
+print('You are current King of England. Your Kingdom is under siege by the Islamic followers, the Musliums.')
+print('Their King wants the territory you currently occupy. It is now you duty to protect your lands.')
+
+#The user's current kingdom stats are displayed
+
+Moral = 60
+Kingdom_Wealth = 40
+Kingdom_Power = 80
+
+print("Your Kingdom's current stats are the following")
+print('Your kingdom moral is', Moral)
+print('Your Kingdom wealth is',Kingdom_Wealth)
+print('Your kingdom power is',Kingdom_Power)
+
+#Begin the adventure
+
+print('Your journey starts now!')
+print('I am your counselor, Lord {name}. A troop of enemy infantry soldiers are marching towards a bordering territory you currently occupy.')
+print('Their numbers are approximately 10,000 soldiers. Choose which troop type to send: cavalry, infantry or archers.')
+print('Choose cavalry, infantry or archers.')
+
+#Their first decision
+
+troop = input()
+troop = troop.lower()
+
+if 'cavalry' in troop:
+
+    print('This is a risky decision. But, I will assemble the men immediately.')
+    
+elif 'infantry' in troop:
+    
+    print('This will be evenly matched. The side with greater numbers will be victorious.')
+    
+elif 'archer' in troop or 'archers' in troop:
+    
+    print('Wise decision, my lord. You have chosen well. I see great potential in you.')
+
+#Repeat the question if answer is not applicable (If I have spare time)
+
+#Next ask if the king will join the battle
+
+print('Your Highness, It is your decision whether you will join the battle.')
+print('Joining the battle will increase the moral of the soldiers, however joining the battle brings risk, or course. Will you lead the battalion?')
+print('Choose yes or no')
+
+ans = input()
+ans = ans.lower()
+
+if 'yes' in ans or 'y' in ans or 'of course' in ans or 'indeed' in ans:
+
+#Increase moral by 10
+
+    Moral = Moral + 10
+    print('Your KIngdom Moral is now',Moral)
+
+    print('Your bravery is unmatched. I will assemble the battalion and we shall leave immediately.')
+    print('The main army has left, my Lord. We are preparing your royal carrige. We shall be a days travel behind the main army.')
+    print('We are now travelling through the country. We will reach the village of Lichenshire soon.')
+    print('My lord! Bandits! There are Bandits attacking us! We have only the protection of the royal guard. Shall be stay and fight of flee?!')
+    print('Choose fight or flee')
+    bandit = input()
+    bandit = bandit.lower()
+
+#Chose to fight the bandits
+    
+    if 'fight' in bandit:
+        print('Guard, prepare for battle! The bandits are running at us with swords. Should be meet them on the battle field or shoot a volley of')
+        print('arrows at them?')
+        print('Choose arrows or battle')
+
+        choice = input()
+        choice = choice.lower()
+        
+        if 'arrows' in choice or 'arrow' in choice:
+            
+            print('After an initial volley of arrows, the bandits were swiftly dealt with by the royal guards.')
+            print('You proceed to the main body of the army')
+            Kingdom_Power = Kingdom_Power - 5
+            print('Your kingdom power is', Kingdom_Power)
+
+        elif 'battle' in choice:
+
+#Decrease Nation Strength by 10
+#Decrease Nation Wealth by 10
+            
+            print('Your guard charges at the bandits. Several of your guards are lost in the battle')
+            print('You proceed to the main body of the army')
+
+            Kingdom_Wealth = Kingdom_Wealth - 5
+            Kingdom_Power = Kingdom_Power - 10
+            print('Your kingdom wealth is', Kingdom_Wealth)
+            print('Your Kingdom power is', Kingdom_Power)
+        
+    elif 'flee' in bandit:
+
+#Decrease moral by 10
+        
+        print('You flee with your guard to the main body of the army')
+        print('Very well, your highness. The decision is yours')
+        print('Your army is about to enage in combat. The first lines connect, and the battle begins to unfold.')
+        
+    if 'cavalry' in troop:
+        
+        print('My lord, our army is losing. Shall we retreat or call for reinforcements?')
+        
+        Kingdom_Power = Kingdom_Power - 30
+        
+        print('Your Kingdom Power is now',Kingdom_Power)
+        print('Choose reinforcments or retreat')
+            
+        decision = input()
+        decision = decision.lower()
+            
+        if 'reinforcements' in decision or 'reinforce' in decision or 'reinforce' in decision:
+            
+            Kingdom_Power = Kingdom_Power - 10
+            Moral = Moral + 20
+            
+            print('Your Kingdom power is now',Kingdom_Power)
+            print('Our reinforcements have arrived. The battle procceds in our favor. Your army sucsessfully defeats the opposition army.')
+            print('This battle was a sucsess.')
+            print('Your kingdom moral is',Moral)
+            
+        elif 'retreat' in ans or 'run' in ans:
+            
+            print('The army has retreated to a near by fort, to restock. You travel back to the castle to reevaluate the situation.')
+
+            Moral = Moral - 20
+            Kingdom_Wealth = Kingdom_Wealth - 10
+            
+            print('Your kingdom Moral is now',Moral)
+            print('Your Kingdom Wealth is now',Kingdom_Wealth)
+            
+    elif 'infantry' in troop:
+        
+        print('The battle is insense and evenly matched. Both sides face severe losses, however, due to our superior soldiers, our army emerges victorious')
+
+        Kingdom_Power = Kingdom_Power - 20
+        
+        print('Your Kingdom Power is now',Kingdom_Power)
+        
+        Moral = Moral + 20
+
+        print('Your Kingdom Moral is now',Moral)
+        
+    elif 'archers' in troop:
+        
+        print('Our soldiers send several volleys of arrows into the enemy. The enemy faces severe losses, and retreat with very few soldiers remeaining')
+        print('Our army sucsessfully wins the battle.')
+        
+        Kingdom_Power = Kingdom_Power - 10
+        Moral = Moral + 25
+        
+        print('Your kingdom moral is now',Moral)
+        print('Your Kingdom Power is now',Kingdom_Power)
+        
+elif 'no' in ans or 'n' in ans or 'stay' in ans:
+    
+    print('Very well, your highness. The decision is yours')
+    
+    Moral = Moral - 20
+    
+    print('The army is about to enage in combat. The first lines connect')
+    
+    if 'cavalry' in troop:
+        
+        print('My lord, our army is losing. Shall be retreat or send reinforcements?')
+        print('Choose reinforcments or retreat')
+            
+        decision = input()
+        decision = decision.lower()
+            
+        if 'reinforcements' in decision or 'reinforce' in decision or 'reinforce' in decision:
+            
+            print('Our reinforcements have arrived. The battle procceds in our favor. Your army sucsessfully defeats the opposition army.')
+            print('This battle was a sucsess.')
+            
+        elif 'retreat' in ans or 'run' in ans:
+            
+            print('The army has retreated to a near by fort, to restock. You travel back to the castle to reevaluate the situation.')
+            
+            Moral = Moral - 20
+            Kingdom_Wealth = Kingdom_Wealth - 10
+            
+            print('Your kingdom Moral is now',Moral)
+            print('Your Kingdom Wealth is now',)
+            
+    elif 'infantry' in troop:
+        
+        print('The battle is insense and evenly matched. Both sides face severe losses, however, due to our superior soldiers, our army emerges victorious')
+
+        Kingdom_Power = Kingdom_Power -  20
+        Moral = Moral + 20
+
+        print('Your Kingdom Power is now',Kingdom_Power)
+        print('Your kingdom Moral is now',Moral)
+        
+    elif 'archers' in troop:
+        
+        print('Our soldiers send several volleys of arrows into the enemy. The enemy faces severe losses, and retreat with very few soldiers remeaining')
+        print('Our army sucsessfully wins the battle.')
+
+        Kingodm_Power = Kingdom_Power - 10
+        Moral = Moral + 20
+
+        print('Your Kingdom Power is now',Kingdom_Power)
+        print('Your Kingdom Moral is now',Moral)
+
+print('After the battle, the remaining army returns to the castle.')
+print('The Church will hold a ceremony in honour of the battle. Will you attend the ceremony? Attending the ceremony will increase kingdom moral')
+print('Choose yes or no')
+
+church = input()
+church = church.lower()
+
+if 'yes' in church:
+
+#Increase moral by 10
+
+    Moral = Moral + 10
+
+    print('Your Kingdom Moral is now',Moral)
+
+    print("You attend the church's ceremony. The Pope comends those who fought in the battle, then begins the procession.")
+    print('During the procession, you have the opportunity to make a speech.  Making a speech will increase the moral of the Kingdom.')
+    print('Do you take the opportunity?')
+    print('Choose yes or no')
+
+    speech = input()
+    speech = speech.lower()
+
+    if 'yes' in speech:
+
+#Increase moral by 5
+
+        Moral = Moral + 5
+
+        print('Your Kingdom moral is now',Moral)
+
+        print('You gave a speech at the procession about the importance of going to heaven')
+        print('The procession ends.')
+        
+    elif 'no' in speech:
+        print('The Pope understands and respects your decision. The procession ends.')
+
+elif 'no' in church:
+    
+    print('The moral of your kingdom is decreased. The church is not pleased at you decision.')
+
+    Moral = Moral - 20
+
+print('Your Highness, an invading Muslim army is spotted marching towards our Capital! You must prepare our defences.')
+print('The Church is advertising the importance of defending the Capital.')
+
+Kingdom_Power = Kingdom_Power + 80
+
+print('Your Kingdom Power is now',Kingdom_Power)
+print('The Kingsom taxes have just been collected')
+
+Kingdom_Wealth = Kingdom_Wealth + 80
+
+print('Your Kingdom Wealth is now',Kingdom_Wealth)
+print('France is also devoted to Christainity. They are willing to provide their armys to join arms with us.')
+print('However, you need a minimum Kingdom wealth of 100')
+
+if Kingdom_Wealth >= 100:
+
+    print('Will you recruit the French army to fight for you?')
+    print('Choose yes or no')
+    
+    France = input()
+    France = France.lower()
+
+    if 'yes' in France:
+
+        Kingdom_Power = Kingdom_Power + 100
+
+        print('The French army will aid us in the upcoming war')
+
+    elif 'no' in France:
+        
+        print('The French army will not aid us in the upcoming war')
+
+elif Kingdom_Wealth < 100:
+
+    print('The French army is unwilling to provide their services without sufficient payment. You cannot recruit the French army.')
+
+print('The Muslim army is now approaching')
+print('If the capital is defeated, then the Kingdom will fall under the Muslim control. The capital MUST prevail')
+
+print('Should we man the walls or meet them on the battle field?')
+print('Choose battle field or walls')
+
+fight = input()
+fight = fight.lower()
+
+if 'battle field' in fight:
+
+    Kingdom_Power = Kingdom_Power - 50
+
+elif 'Walls' in fight:
+
+    Kingdom_Power = Kingdom_Power + 10
+
+print('Our army is about to engage in combat.')
+print('The front lines connect')
+print('Shall we attempt to outflank the enemy?')
+print('Choose yes or no')
+
+flank = input()
+flank = flank.lower()
+
+if 'yes' in flank:
+
+    succeed = random.choice(listy)
+    
+    if succeed == 'yes':
+
+        Kingdom_Power = Kingdom_Power = 10
+
+        print('We sucsessfully outflanked the enemy')
+
+    elif succeed == 'no':
+
+        Kingdom_Power = Kingdom_Power - 20
+
+        print('My lord, we were unable to outflank the enemy!')
+
+elif 'no' in flank:
+
+    print('We did not attempt to outflank the enemy')
+
+print('The enemy is sending a volley of arrows at us!')
+print('Our troops quickly try to raise their shields!')
+
+shield = random.choice(list1)
+
+if shield == 'no':
+
+    print('Our soldiers raised their shields in timw')
+
+elif shield == 'yes':
+
+    Kingdom_Power = Kingdom_Power - 15
+
+    print('Our troops did not raise their shields in time!')
+
+print('The battle continues, evenly matched')
+print('Both sides face immense losses')
+
+if Kingdom_Power >= 90:
+
+    print('Finally, after a neck to neck battle, our army emerges victourious!')
+
+    print('Ending: You survive')
+
+elif Kingdom_Power < 90:
+
+    print('The battle continues. Our side begins to falter. They break out lines.')
+    print('Our army fights to the last man. The captial is lost')
+
+    print('Ending: You die')
